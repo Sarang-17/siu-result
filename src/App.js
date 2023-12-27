@@ -66,13 +66,13 @@ function App() {
         <hr className="hrline" />
         <div className="container jumbotron">
           <div className="row">
-            <div class="col-md-7">
+            <div class="col-md-9">
               <form onSubmit={handleSubmit} id="resultform">
                 <div
                   style={{
                     textAlign: "left",
                     marginTop: "10px",
-                    marginLeft: "50px",
+                    marginLeft: "20px",
                   }}
                 >
                   <label htmlFor="semester" style={{ marginRight: "20px" }}>
@@ -108,8 +108,9 @@ function App() {
                   style={{
                     textAlign: "left",
                     marginTop: "10px",
-                    marginLeft: "50px",
+                    marginLeft: "20px",
                   }}
+                  className="tricky"
                 >
                   <label htmlFor="rollNumber" style={{ marginRight: "20px" }}>
                     Enter Your PRN
