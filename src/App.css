@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.topMenu{
+  background: #253b80;
+  font-size: 12px;
+  border: none;
+  min-height: 42px;
+  margin-bottom: 20px;
+}
+
+.active{
+  line-height: 14px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.minht{
+  margin-top: 40px;
+  text-align: center;
+}
+
+.h2txt{
+  font-weight: 800;
+  text-align: center;
+  color: #45b999;
+  text-shadow: 1px 4px 4px #b4dae0;
+}
+
+.hrline{
+  border-top: 2px solid #45b999;
+}
+
+.jumbotron{
+  /* height: 395px; */
+  background-color: #eee;
+  padding-top: 50px;
+}

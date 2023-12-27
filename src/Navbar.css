@@ -1,0 +1,14 @@
+.listItem{
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color:white !important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-left: 40px;
+    text-align: left;
+}
+
+@media(max-width: 720px){
+    .listItem{
+        margin-left: 0px;
+    }
+}
