@@ -3,13 +3,15 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 
 function App() {
-  const [semester, setSemester] = useState("ODD 2023");
+  const [semester, setSemester] = useState(7);
   const [rollNumber, setRollNumber] = useState("");
-  const [seatNumber, setSeatNumber] = useState(null);
-  const [displayResult, setDisplayResult] = useState(false);
+  const [seatNumber, setSeatNumber] = useState("");
+  const [acceptSeatNumber, setAccepSeatNumber] = useState(false);
+  const [displayResult, setDisplayResult] = useState(0);
 
   const handleSemesterChange = (event) => {
     setSemester(event.target.value);
+    console.log(semester);
   };
 
   const handleRollNumberChange = (event) => {
@@ -19,7 +21,7 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Perform actions with semester and rollNumber data as needed
-    if (rollNumber.length === 11) setSeatNumber("");
+    if (rollNumber === "20010323101") setAccepSeatNumber(true);
     else window.alert("Enter Vaid Details");
   };
 
@@ -29,10 +31,20 @@ function App() {
 
   const finalSubmit = (event) => {
     event.preventDefault();
-    if (seatNumber === "313606" && rollNumber === "20010323101")
-      setDisplayResult(true);
-    else console.log(1);
-    // alert("Details do not Match, please verify");
+    console.log(seatNumber, semester, rollNumber);
+    if (
+      seatNumber === "313606" &&
+      rollNumber === "20010323101" &&
+      semester === 7
+    )
+      setDisplayResult(1);
+    else if (
+      seatNumber == "260516" &&
+      rollNumber == "20010323101" &&
+      semester == 6
+    )
+      setDisplayResult(2);
+    else alert("Details do not Match, please verify");
   };
 
   return (
@@ -98,9 +110,10 @@ function App() {
                       borderRadius: "2px",
                       background: "#fff",
                     }}
-                    disabled={seatNumber !== null ? "disabled" : ""}
+                    disabled={seatNumber !== "" ? "disabled" : ""}
                   >
-                    <option value="1">ODD 2023</option>
+                    <option value="6">EVEN 2022</option>
+                    <option value="7">ODD 2023</option>
                     {/* Add more options as needed */}
                   </select>
                 </div>
@@ -136,34 +149,34 @@ function App() {
                       borderRadius: "2px",
                       background: "#fff",
                     }}
-                    disabled={seatNumber !== null ? "disabled" : ""}
+                    disabled={seatNumber !== "" ? "disabled" : ""}
                   />
 
                   <button
                     type="submit"
                     style={{ marginLeft: "25px" }}
                     className="btn btn-success"
-                    disabled={seatNumber !== null}
+                    disabled={seatNumber !== ""}
                   >
                     Submit
                   </button>
                 </div>
               </form>
-              {seatNumber !== null && (
+              {acceptSeatNumber && (
                 <form onSubmit={finalSubmit}>
                   <div className="d-flex flex-row mt-2 align-items-center">
                     <div
                       style={{
                         textAlign: "left",
                         marginTop: "10px",
-                        marginLeft: "50px",
+                        marginLeft: "20px",
                       }}
                     >
                       <label
                         htmlFor="seatNumber"
                         style={{ marginRight: "20px" }}
                       >
-                        Enter Seat Number of Sem 7
+                        Enter Seat Number of Sem {semester}
                         <span
                           style={{
                             color: "red",
@@ -200,14 +213,24 @@ function App() {
               )}
             </div>
           </div>
-          {displayResult && (
+          {displayResult === 1 && (
             <iframe
               src="/31siuexmrslt38516.pdf"
               type="application/pdf"
               width="100%"
               height="800px"
               className="mt-4"
-              style = {{marginTop: "50px", marginBottom: "50px"}}
+              style={{ marginTop: "50px", marginBottom: "50px" }}
+            ></iframe>
+          )}
+          {displayResult === 2 && (
+            <iframe
+              src="/31siuexmrslt38445-1.pdf"
+              type="application/pdf"
+              width="100%"
+              height="800px"
+              className="mt-4"
+              style={{ marginTop: "50px", marginBottom: "50px" }}
             ></iframe>
           )}
         </div>
